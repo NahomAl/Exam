@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Page</title>
+    <link rel="stylesheet" href="../css/questions_styles.css">
+</head>
+<body>
+    <div class="exam-container">
+        <form id="exam-form">
+            <div id="questions-container"></div>
+            <div class="navigation-buttons">
+                <button type="button" id="back-button" onclick="navigate(-1)">Back</button>
+                <button type="button" id="skip-button" onclick="skipQuestion()">Skip</button>
+                <button type="button" id="next-button" onclick="nextQuestion()">Next</button>
+                <button type="submit" id="submit-button" style="display:none;">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../js/questions.js"></script>
+</body>
+</html>
+
