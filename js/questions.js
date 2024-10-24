@@ -96,3 +96,4 @@ let questions = [];
 
         // Initialize the exam form by fetching questions
 fetchQuestions();
+
