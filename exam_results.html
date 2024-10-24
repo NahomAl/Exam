@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - My Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      padding: 20px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    canvas {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+  <!-- Include Chart.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Dashboard Content -->
+  <div class="content">
+    <h2>Student Dashboard - My Results</h2>
+    
+    <!-- Section for the Chart -->
+    <div class="dashboard-section" id="chart-section">
+      <h3>Exam Results</h3>
+      <canvas id="resultsChart"></canvas> <!-- Canvas element for the chart -->
+    </div>
+  </div>
+
+  <script>
+    // Function to render the chart
+    function renderChart(resultsData) {
+      // Extract exam names and scores from the fetched data
+      const examNames = resultsData.map(result => result.exam_name);
+      const examScores = resultsData.map(result => parseFloat(result.score));
+      
+
+      // Log data to ensure it's correct
+      console.log("Exam Names:", examNames);
+      console.log("Exam Scores:", examScores);
+
+      // Chart.js configuration
+      const ctx = document.getElementById('resultsChart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'polarArea',  // Line chart
+        data: {
+          labels: examNames,  // Labels for the x-axis (exam names)
+          datasets: [{
+            label: 'Score',
+            data: examScores,  // Data for the y-axis (scores)
+            // backgroundColor: 'rgba(75, 192, 192, 0.2)',  // Line fill color
+            // borderColor: 'rgba(75, 192, 192, 1)',  // Line color
+            borderWidth: 2,
+            fill: true, // Fill the area under the line
+            tension: 0.4 // Line smoothing
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true, // Start y-axis at 0
+              max: 100  // Set maximum score to 100
+            }
+          }
+        }
+      });
+    }
+
+    // Fetch data from the PHP backend and render the chart
+    function fetchResultsData() {
+      fetch('exam_results.php') // URL of your PHP script
+        .then(response => response.json())
+        .then(data => {
+          console.log("Fetched Data:", data);  // Log the fetched data
+          if (data.length === 0) {
+            document.getElementById('chart-section').innerHTML = '<p>No exam results available.</p>';
+            return;
+          }
+          renderChart(data);  // Pass the fetched data to the renderChart function
+        })
+        .catch(error => console.error('Error fetching exam results:', error));
+    }
+
+    // Call the function to fetch and render the chart
+    // console.log("Fetching data...");
+    fetchResultsData();
+
+  </script>
+
+</body>
+</html>

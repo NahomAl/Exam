@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unified Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #333;
+      padding-top: 20px;
+      position: fixed;
+      color: white;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    /* Main content styling */
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .content h2 {
+      margin-bottom: 20px;
+    }
+
+    /* Section styling */
+    .dashboard-section {
+      margin-bottom: 30px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-section h3 {
+      margin-bottom: 15px;
+    }
+
+    /* Button styling */
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    /* Chart placeholder */
+    .chart-placeholder {
+      height: 300px;
+      background-color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .chart-placeholder p {
+      color: #666;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar" id="sidebar-nav">
+    <!-- Role-specific links will be injected here -->
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Welcome to the Unified Dashboard</h2>
+    <div id="dashboard-content">
+      <!-- Role-specific dashboard content will be injected here -->
+    </div>
+  </div>
+
+  <script>
+    // Simulated user role - this would normally come from the backend or session.
+    let userRole = "student"; // Try "student", "admin", or "instructor".
+
+    // Sidebar navigation content based on role
+    const sidebarNav = document.getElementById('sidebar-nav');
+    const dashboardContent = document.getElementById('dashboard-content');
+
+    if (userRole === "student") {
+      sidebarNav.innerHTML = `
+        <a href="#">Student Dashboard</a>
+        <a href="./my_exams1.php">My Exams</a>
+        <a href="./exam_results.html">Results</a>
+        <a href="#">Settings</a>
+      `;
+
+      dashboardContent.innerHTML = `
+        <div class="dashboard-section">
+          <h3>Upcoming Exams</h3>
+          <table>
+            <tr><th>Subject</th><th>Date</th><th>Status</th></tr>
+            <tr><td>Math Final</td><td>Oct 20, 2024</td><td>Registered</td></tr>
+            <tr><td>Science Final</td><td>Oct 25, 2024</td><td>Pending</td></tr>
+          </table>
+        </div>
+        <div class="dashboard-section">
+          <h3>Results Overview</h3>
+          <div class="chart-placeholder"><p>Exam Results Chart</p></div>
+          <button class="button">View Detailed Results</button>
+        </div>
+      `;
+    } else if (userRole === "admin") {
+      sidebarNav.innerHTML = `
+        <a href="#">Admin Dashboard</a>
+        <a href="#">Manage Exams</a>
+        <a href="#">Manage Students</a>
+        <a href="#">Reports & Analytics</a>
+        <a href="#">Settings</a>
+      `;
+
+      dashboardContent.innerHTML = `
+        <div class="dashboard-section">
+          <h3>Exam Management</h3>
+          <button class="button">Create New Exam</button>
+          <button class="button">Manage Current Exams</button>
+        </div>
+        <div class="dashboard-section">
+          <h3>Student Registration Overview</h3>
+          <div class="chart-placeholder"><p>Registration Statistics</p></div>
+          <button class="button">View Detailed Analytics</button>
+        </div>
+      `;
+    } 
+  </script>
+
+</body>
+</html>
