@@ -1,3 +1,4 @@
+/* General styling for the page */
 * {
     box-sizing: border-box;
 }
@@ -6,6 +7,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f9fa;
 }
 
 header {
@@ -17,6 +19,9 @@ header {
 
 .month-year-selector {
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .month-year-selector label, select {
@@ -24,42 +29,163 @@ header {
     margin: 0 10px;
 }
 
+/* Main container for the calendar */
 main {
     display: flex;
     justify-content: center;
 }
+/*
+#month-name{
 
+}
+*/
 #calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
+    /*grid-template-rows: repeat(5, 150px);*/
     gap: 10px;
     width: 80%;
-    margin: 0 auto;
-    margin-top: 50px;
+    margin: 50px auto;
 }
 
 .day {
+    /*min-height: 100px;*/
+    width: 150px;
+    height: 150px;
     background-color: #f4f4f4;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
+    transition: background-color 0.3s;
 }
 
 .day h3 {
-    margin-top: 0;
+    margin: 0;
+    font-size: 18px;
 }
 
-.exam {
-    margin-top: 10px;
-    padding: 5px;
-    background-color: #e2e2e2;
+/* Styling for clickable days when setting an exam date */
+.clickable-day {
+    cursor: pointer;
+    background-color: #e7f1ff; /* Light blue background to indicate it's clickable */
+}
+
+.clickable-day:hover {
+    background-color: #cce3ff; /* Slightly darker blue on hover */
+    border-color: #007bff;
+}
+/* Style the section that holds the "Save Exam Date" button */
+/*
+#save-date-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#save-date-section button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 5px;
-    font-size: 14px;
-    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.exam-time {
-    color: #007bff;
+#save-date-section button:hover {
+    background-color: #0056b3;
 }
-.clickable
+
+#save-date-section button:active {
+    background-color: #004080;
+}
+*/
+/* Container for the exam info section */
+#exam-info-section {
+    display: none; /* Initially hidden, to be displayed dynamically */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header for the exam info section */
+#exam-info-section h3 {
+    font-size: 24px;
+    color: #333;
+    color: blue;
+    margin-bottom: 15px;
+}
+
+/* List for exam details */
+#exam-details-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+/* Style for each exam item in the list */
+#exam-details-list li {
+    background-color: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Styling for time input */
+input[type="time"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Button to save the exam date/time */
+#save-exam-date {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#save-exam-date:hover {
+    background-color: #0056b3;
+}
+
+/* Error message styles */
+#error-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Hidden save date section */
+#save-date-section {
+    display: none; /* Initially hidden */
+}
+
+/*.exam-count {
+    font-size: 10px;
+}*/
+
+
+
+
