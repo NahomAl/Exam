@@ -85,9 +85,33 @@ $_SESSION['timeAllotted'] = $exam['Time_allotted'];
     <link rel="stylesheet" href="../css/exam-editor.css">
 </head>
 <body>
-    <header>
-        <h1>Edit Exam</h1>
-    </header>
+<header>
+    <h1>Examination Sytem</h1>
+</header>
+<div class="container">
+        <aside>
+            <?php include("nav-links.html") ?>
+        </aside>
+        <main>
+            <form action="form-handler.php" method="post" name="create-exam-form" class="create-exam-form">
+                <label for="exam-name">Exam name: </label>
+                <input type="text" name="exam-name" id="exam-name" required><br>
+                <label for="exam-type">Exam type: </label>
+                <select name="exam-type" id="exam-type" required>
+                    <option value="none" selected disabled>Select exam type</option>
+                    <option value="Academic assessment">Academic Assessment</option>
+                    <option value="Certification Exam">Certification Exam</option>
+                    <option value="Training Assessment">Training Assessment</option>
+                    <option value="Licensing Exam">Licensing Exam</option>
+                    <option value="Other">Other</option>
+                </select><br>
+                <label for="num-of-questions">Number of Questions</label>
+                <input type="number" min="5" max="200" value="5" name="num-of-questions" id="number-of-questions"><br>
+                <input type="submit" name="create-exam" value="Create Exam">
+                <div class="err-div"></div>
+            </form>
+        </main>
+    </div>    
     <main>
         <form id="edit-exam-form" action="update-exam.php" method="post">
             <label for="exam-name">Exam Name:</label>
@@ -112,7 +136,7 @@ $_SESSION['timeAllotted'] = $exam['Time_allotted'];
             <label for="time-of-exam">Time of Exam:</label>
             <input type="datetime-local" id="time-of-exam" name="time_of_exam" disabled value="<?php echo htmlspecialchars($exam['Time_of_exam']); ?>" required>
             <small>
-                <a href="test-schedule2.php">Schedule Exam</a>
+                <a href="exam-schedule.php">Schedule Exam</a>
             </small>
 
             <label for="number-of-examinees">Number of Examinees:</label>

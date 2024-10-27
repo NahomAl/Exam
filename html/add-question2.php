@@ -7,8 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Question</title>
+    <link rel="stylesheet" href="../css/header.css">
     <style>
-        body {
+        /*body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             margin: 0;
@@ -17,9 +18,98 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+        }*/
+        form {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
         }
 
-        form {
+        /* Form header styling */
+        .page-title {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Label styling */
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Styling for textarea input */
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Styling for options section */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        /* Individual option styling */
+        .options div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .options textarea {
+            flex: 1;
+            font-size: 16px;
+        }
+
+        /* Radio button styling */
+        input[type="radio"] {
+            transform: scale(1.2);
+            margin-right: 10px;
+        }
+
+        /* Submit button styling */
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Mobile-friendly adjustments */
+        @media (max-width: 600px) {
+            form {
+                width: 95%;
+            }
+        }
+        /*form {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -44,7 +134,7 @@
         }
 
         textarea, input[type="radio"] {
-            width: 100%;
+            
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
@@ -59,12 +149,14 @@
 
         .options {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 10px;
         }
 
         .options div {
-            width: 48%;
+            
         }
 
         input[type="submit"] {
@@ -81,7 +173,7 @@
 
         input[type="submit"]:hover {
             background-color: #218838;
-        }
+        }*/
     </style>
 </head>
 <?php
@@ -109,40 +201,46 @@
     }
 ?>
 <body>
-    <form action="" method="post">
-        <h1><?php echo isset($_GET["qID"]) ? "Edit Question" : "Add New Question"; ?></h1>
-        
-        <label for="question">Question</label>
-        <textarea name="question" id="question" cols="100" rows="7" required><?php echo htmlspecialchars($questionText); ?></textarea>
+    <header>
+        <h1>Examination Sytem</h1>
+    </header>
+    <div class="container">
+        <aside>
+            <?php include("nav-links.html") ?>
+        </aside>
+        <main>
+            <form action="" method="post">
+                <h1 class="page-title"><?php echo isset($_GET["qID"]) ? "Edit Question" : "Add New Question"; ?></h1>
+                
+                <label for="question">Question</label>
+                <textarea name="question" id="question" cols="70" rows="7" required><?php echo htmlspecialchars($questionText); ?></textarea>
 
-        <div class="options">
-            <div>
-                <label for="optionA">A. </label>
-                <textarea name="optionA" id="optionA" cols="50" rows="3" required><?php echo htmlspecialchars($optionA); ?></textarea>
-                <input type="radio" name="answer" value="A" <?php echo $answer == 'A' ? 'checked' : ''; ?>> Correct Answer
-            </div>
-            <div>
-                <label for="optionB">B. </label>
-                <textarea name="optionB" id="optionB" cols="50" rows="3" required><?php echo htmlspecialchars($optionB); ?></textarea>
-                <input type="radio" name="answer" value="B" <?php echo $answer == 'B' ? 'checked' : ''; ?>> Correct Answer
-            </div>
-        </div>
-
-        <div class="options">
-            <div>
-                <label for="optionC">C. </label>
-                <textarea name="optionC" id="optionC" cols="50" rows="3" required><?php echo htmlspecialchars($optionC); ?></textarea>
-                <input type="radio" name="answer" value="C" <?php echo $answer == 'C' ? 'checked' : ''; ?>> Correct Answer
-            </div>
-            <div>
-                <label for="optionD">D. </label>
-                <textarea name="optionD" id="optionD" cols="50" rows="3" required><?php echo htmlspecialchars($optionD); ?></textarea>
-                <input type="radio" name="answer" value="D" <?php echo $answer == 'D' ? 'checked' : ''; ?>> Correct Answer
-            </div>
-        </div>
-
-        <input type="submit" name="done" value="Done">
-    </form>
+                <div class="options">
+                    <div>
+                        <input type="radio" name="answer" value="A" <?php echo $answer == 'A' ? 'checked' : ''; ?>>
+                        <span for="optionA">A. </span>
+                        <textarea name="optionA" id="optionA" cols="50" rows="3" required><?php echo htmlspecialchars($optionA); ?></textarea>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer" value="B" <?php echo $answer == 'B' ? 'checked' : ''; ?>>
+                        <label for="optionB">B. </label>
+                        <textarea name="optionB" id="optionB" cols="50" rows="3" required><?php echo htmlspecialchars($optionB); ?></textarea>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer" value="C" <?php echo $answer == 'C' ? 'checked' : ''; ?>>
+                        <label for="optionC">C. </label>
+                        <textarea name="optionC" id="optionC" cols="50" rows="3" required><?php echo htmlspecialchars($optionC); ?></textarea>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer" value="D" <?php echo $answer == 'D' ? 'checked' : ''; ?>>
+                        <label for="optionD">D. </label>
+                        <textarea name="optionD" id="optionD" cols="50" rows="3" required><?php echo htmlspecialchars($optionD); ?></textarea>
+                    </div>
+                </div>
+                <input type="submit" name="done" value="Done">
+            </form>
+        </main>
+    </div>
 
     <?php
         if(isset($_POST["done"])){
@@ -179,8 +277,6 @@
     ?>
 
     <script>
-        // Optional JavaScript functionalities can be added here
-        // Example: Alert if form is successfully submitted
         document.querySelector('form').onsubmit = function() {
             alert("Form submitted successfully!");
         }
