@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 18px;
+}
+
+.exam-container {
+    background: white;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: xx-large;
+}
+
+label {
+    margin: 15px 0 10px;
+    display: block;
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: calc(100% - 40px);
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+button {
+    width: 90%;
+    padding: 16px;
+    background-color: #2841a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #4846cc;
+}
+
+.button-eye {
+    width: 0%;
+    padding: 16px;
+    /* Increased padding */
+    background-color: #2848a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    /* Increased button font size */
+}
+
+.toggle-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: -40px;
+}
+
+.toggle-button i {
+    font-size: 24px;
+    color: #4064dd;
+}
+
+#role {
+    margin-bottom: 40px;
+}
