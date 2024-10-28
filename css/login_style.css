@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 18px;
+    /* Increase base font size */
+}
+.exam-container {
+    background: white;
+    padding: 60px;
+    /* Increased padding */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    /* Increased width */
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    /* Increased margin */
+    font-size: xx-large;
+    /* Increased heading size */
+}
+label {
+    margin: 15px 0 10px;
+    /* Increased margins */
+    display: block;
+    font-size: 18px;
+    /* Increased label size */
+}
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 40px);
+    padding: 16px;
+    /* Increased padding */
+    margin-bottom: 20px;
+    /* Increased margin */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 18px;
+    /* Increased input size */
+}
+button {
+    width: 90%;
+    padding: 16px;
+    /* Increased padding */
+    background-color: #2841a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    /* Increased button font size */
+}
+button:hover {
+    background-color: #4846cc;
+}
+.button-eye {
+    width: 0%;
+    padding: 16px;
+    /* Increased padding */
+    background-color: #2848a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    /* Increased button font size */
+}
+.error {
+    color: red;
+    text-align: center;
+    margin: 15px 0;
+    /* Increased margin */
+    font-size: 18px;
+    /* Increased error message size */
+}
+.password-toggle {
+    display: flex;
+    align-items: center;
+}
+.toggle-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: -40px;
+}
+.toggle-button i {
+    font-size: 24px;
+    /* Increased icon size */
+    color: #4064dd;
+}
