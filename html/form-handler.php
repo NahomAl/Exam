@@ -1,44 +1,115 @@
 <?php
     session_start();
+    require_once 'dbConnect.php';
+
+    //From organizer-dashboard.php
     if (isset($_POST['editExam'])){
         $_SESSION['examID'] = $_POST['editExam'];
+        $_SESSION['examName'] = $_POST['examName'];
         header("Location: exam-editor.php");
     }
+
+    //From organizer-dashboard.php
     if (isset($_POST['viewQuestions'])){
         $_SESSION['examID'] = $_POST['viewQuestions'];
+        $_SESSION['examName'] = $_POST['examName'];
         header("Location: exam-questions.php");
     }
+
+    //From exam-history.php
     if (isset($_POST['showResult'])){
         $_SESSION['examID'] = $_POST['showResult'];
         header("Location: exam-result.php");
     }
+
+    //From create-exam.php
     if (isset($_POST["create-exam"])){
         $regex = "/^[A-Z][\w-_ ]*$/i";
         $examName = $_POST["exam-name"];
         $examType = $_POST["exam-type"];
-        $numQuestion = $_POST["num-of-questions"];
-        //$timeAlloted = $_POST["time-allotted"];
-        //$numExaminees = $_POST["num-of-examinees"];
         $orgID = $_SESSION['orgID'];
         if (!preg_match($regex, $examName))
             echo "Invalid input for exam name";
         else{
-            $sql = "INSERT INTO exam (Exam_name, Exam_type, Number_of_questions, Time_alloted, Number_of_examinees,
-                    Organizer_ID) VALUES ('$examName', '$examType', $numQuestion, $timeAlloted, $numExaminees, $orgID)";
-            if (mysqli_query($conn, $sql))
+            $sql = $conn -> prepare("INSERT INTO exam (Exam_name, Exam_type, Organizer_ID) VALUES (?, ?, ?)");
+            $sql -> bind_param("ssi", $examName, $examType, $orgID);
+            if ($sql -> execute()){
+                $sql -> close();
+                $conn -> close();
                 header("Location: ./organizer-dashboard.php");
+            }
             else
                 echo "Error creating exam";
         }
+        $sql -> close();
+        $conn -> close();
     }
 
+    //From exam-questions.php
     if (isset($_POST['editQuestion'])){
         $_SESSION['qID'] = $_POST['editQuestion'];
         header("Location: add-question.php");
     }
 
+    //From exam-questions.php
+    if (isset($_POST['addQuestion'])){
+        unset($_SESSION['qID']);
+        header("Location: add-question.php");
+    }
 
 
+    //From add-question.php
+    if (isset($_POST['submitQuestion'])){
+        $question = htmlspecialchars($_POST["question"]);
+        $optionA = htmlspecialchars($_POST["optionA"]);
+        $optionB = htmlspecialchars($_POST["optionB"]);
+        $optionC = htmlspecialchars($_POST["optionC"]);
+        $optionD = htmlspecialchars($_POST["optionD"]);
+        $answer = htmlspecialchars($_POST["answer"]);
+        require_once 'dbConnect.php';
+        if (isset($_SESSION["qID"])){
+            $qID = $_SESSION["qID"];
+            $sql = $conn -> prepare("UPDATE question SET 
+                            Question_text = ?, 
+                            Option_A = ?, 
+                            Option_B = ?, 
+                            Option_C = ?, 
+                            Option_D = ?, 
+                            Correct_answer = ?
+                            WHERE Question_ID = ?");
+            $sql -> bind_param("ssssssi", $question, $optionA, $optionB, $optionC, $optionD, $answer, $qID);
+            $status = $sql -> execute();
+        }
+        else{
+            $examID = $_SESSION["examID"];
+            $sql = $conn -> prepare("INSERT INTO question(Exam_ID,Question_text,Option_A,Option_B,Option_C,Option_D,Correct_answer)
+                                    VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $sql -> bind_param("issssss", $examID, $question, $optionA, $optionB, $optionC, $optionD, $answer);
+            $status = $sql -> execute(); 
+        }
+        $sql -> close();
+        $conn -> close();
+        if ($status){
+            header("Location: exam-questions.php");
+        }
+        else
+            echo "Operation failed";
+    }
 
-
+    //From exam-editor.php
+    if(isset($_POST['submitExam'])){
+        $examID = $_SESSION['examID'];
+        $examName = $_POST['exam_name'];
+        $examType = $_POST['exam_type'];
+        $numQuestions = $_POST['number_of_questions'];
+        $stmt = $conn -> prepare("UPDATE exam SET Exam_name = ?, Exam_type = ?, Number_of_questions = ? WHERE Exam_ID = $examID");
+        $sql -> bind_param("ssi", $examName, $examType, $numQuestions);
+        $status = $sql -> execute();
+        $sql -> close();
+        $conn -> close();
+        if ($status)
+            header("Location: organizer-dashboard.php");
+        else
+            echo "Error updating exam";
+    }
 ?>

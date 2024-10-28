@@ -6,6 +6,6 @@
 
     $conn = mysqli_connect($host, $user, $pass, $db);
     if (!$conn)
-        echo "Database connection failed"
+        echo "Database connection failed";
 
 ?>

@@ -24,10 +24,6 @@
             <?php include("nav-links.html") ?>
         </aside>
         <main>
-            <!--
-            <h2>Welcome to the organizer dashboard</h2>
-            <p>This is where your exams are displayed. You can search for an exam, create a new exam, edit an exam.</p>
-            -->
             <?php
                 include('phpCode.php');
                 $orgID = $_SESSION["orgID"];

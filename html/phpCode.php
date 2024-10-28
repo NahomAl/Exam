@@ -17,14 +17,16 @@
             echo "<tbody>";
             while($row = mysqli_fetch_assoc($result)) {
                 $examID = $row['Exam_ID'];
+                $examName = $row['Exam_name'];
                 echo '<tr class="exam">';
-                echo "<td>" . $row['Exam_ID'] . "</td>";
-                echo "<td>" . $row['Exam_name'] . "</td>";
+                echo "<td>" . $examID . "</td>";
+                echo "<td>" . $examName . "</td>";
                 echo "<td>" . $row['Exam_type'] . "</td>";
                 echo "<td>" . $row['Time_of_exam'] . "</td>";
                 echo "<td>" . $row['Number_of_questions'] . "</td>";
                 echo "<td>" . $row['Number_of_examinees'] . "</td>";
                 echo '<form action="form-handler.php" method="post">';
+                echo "<input type='hidden' name='examName' value='$examName'>";
                 echo "<td><button type='submit' name='editExam' value='$examID'>Edit</button></td>";
                 echo "<td><button type='submit' name='viewQuestions' value='$examID'>Questions</button></td>";
                 echo '</form>';

@@ -189,7 +189,7 @@
         let scores = [];
         for(let i = 0; i < 100; i++){
             scores.push(Math.floor(Math.random() * 11));
-            const row = `<tr><td>AAA</td><td>${scores[i]}</td></tr>`;
+            const row = `<tr><td>AAA${i}</td><td>${scores[i]}</td></tr>`;
             tableBody.innerHTML += row;
         }
         createSummary(scores);

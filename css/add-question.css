@@ -1,0 +1,90 @@
+form {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+/* Form header styling */
+.page-title {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Styling for textarea input */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Styling for options section */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Individual option styling */
+.options div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.options textarea {
+    flex: 1;
+    font-size: 16px;
+}
+
+/* Radio button styling */
+input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+    form {
+        width: 95%;
+    }
+}
