@@ -9,13 +9,17 @@ if (!isset($_SESSION['examID'])) {
 }
 
 // Include the database connection file
-include 'dbConnect.php'; // Make sure to replace with your actual DB connection file
+require 'dbConnect.php'; // Make sure to replace with your actual DB connection file
 
 // Get the examID from session
 $examID = $_SESSION['examID'];
 
 // Query to get examinee_ID and score from examinee_takes_exam table
-$sql = "SELECT Examinee_ID, Score FROM examinee_takes_exam WHERE Exam_ID = ?";
+//$sql = "SELECT Examinee_ID, Score FROM examinee_takes_exam WHERE Exam_ID = ?";
+$sql = "SELECT e.First_name + ' ' + e.Last_name as Full_name, s.Score 
+        FROM examinee e 
+        INNER JOIN examinee_takes_exam s 
+        ON e.Examinee_ID = s.Examinee_ID";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $examID);
 $stmt->execute();

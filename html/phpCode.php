@@ -26,7 +26,7 @@
                 echo "<td>" . $row['Number_of_examinees'] . "</td>";
                 echo '<form action="form-handler.php" method="post">';
                 echo "<td><button type='submit' name='editExam' value='$examID'>Edit</button></td>";
-                echo "<td><button type='submit' name='editQuestions' value='$examID'>Questions</button></td>";
+                echo "<td><button type='submit' name='viewQuestions' value='$examID'>Questions</button></td>";
                 echo '</form>';
                 echo "</tr>";
             }
