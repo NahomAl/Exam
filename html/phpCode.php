@@ -45,7 +45,7 @@
             }
         }
         else{
-            echo "<h2>No exam found</h2>";
+            echo "<tr><td><h2>No exam found</h2></td></tr>";
         }
     }
  

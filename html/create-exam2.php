@@ -55,34 +55,6 @@
                         <span class="title">Exam History</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
-                        </span>
-                        <span class="title">Help</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
-                        </span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
-                        </span>
-                        <span class="title">Password</span>
-                    </a>
-                </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -108,12 +80,9 @@
                 </div>
             </div>
 
-            <!-- ======================= Cards ================== -->
-
-            <!-- ================ Order Details List ================= -->
             <div class="details">
                 <div class="recentOrders">
-                    <main>
+                    <h2>Create a new exam</h2>
                     <form action="form-handler.php" method="post" name="create-exam-form" class="create-exam-form">
                         <label for="exam-name">Exam name: </label>
                         <input type="text" name="exam-name" id="exam-name" required><br>
@@ -134,7 +103,6 @@
                         <input type="submit" name="create-exam" value="Create Exam">
                         <div class="err-div"></div>
                     </form>
-                    </main>
                 </div>
             </div>
         </div>

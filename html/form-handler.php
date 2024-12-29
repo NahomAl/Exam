@@ -110,7 +110,7 @@
         $sql -> close();
         $conn -> close();
         if ($status){
-            header("Location: exam-questions.php");
+            header("Location: exam-questions2.php");
         }
         else
             echo "Operation failed";
