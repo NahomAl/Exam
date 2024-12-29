@@ -20,6 +20,7 @@ header {
     background-color: #333;
     background-color: #f4f4f4;
     background-color: #e9e7e7;
+    background-color: rgb(52, 73, 94);
     color: white;
     color: black;
     padding: 20px;
@@ -27,6 +28,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom
 }
 
 header h1 {
@@ -69,6 +71,8 @@ aside {
     width: 250px;
     background-color: #333;
     background-color: #f4f4f4;
+    background-color: #e9e7e7;
+    background-color: rgb(52, 73, 94);
     color: white;
     padding-top: 15px;
     display: flex;

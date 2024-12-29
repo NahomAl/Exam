@@ -17,8 +17,15 @@
     }
 
     $org = $result->fetch_assoc();
+    $stmt->close();
     $query = "SELECT * FROM user WHERE username = ?";
-    
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $org['user_ID']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $usr = $result->fetch_assoc();
+    $stmt->close();
+
     /* $_SESSION['examTime'] = $exam['Time_of_exam'];
     $_SESSION['timeAllotted'] = $exam['Time_allotted']; */
 
@@ -56,7 +63,7 @@
                     <option value="other" <?php echo ($org['Industry'] == 'other') ? 'selected' : ''; ?>>Other</option>
                 </select>
                 <label for="user-name">User name:</label>
-                <input type="text" id="user-name" name="user-name" value="<?php echo htmlspecialchars($org['Organizer_name']); ?>" required>
+                <input type="text" id="user-name" name="user-name" value="<?php echo htmlspecialchars($usr['user']); ?>" required>
                 
                 <label for="time-allotted">Time Allotted (hours:minutes):</label>
                 <input type="time" id="time-allotted" name="time_allotted" value="<?php echo htmlspecialchars($exam['Time_allotted']); ?>" required>

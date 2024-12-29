@@ -76,7 +76,8 @@
                     $result = mysqli_query($conn, "SELECT Organizer_ID FROM organizer WHERE user_ID = $userID");
                     $data = mysqli_fetch_assoc($result);
                     $_SESSION["orgID"] = $data["Organizer_ID"];
-                    Header("Location: ./organizer-dashboard.php");
+                    //Header("Location: ./organizer-dashboard.php");
+                    Header("Location: ./Org-dash.php");
                 }
                 //echo "welcome";
             }
