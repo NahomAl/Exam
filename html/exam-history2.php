@@ -15,10 +15,6 @@
 
 <body>
     </body>
-    <?php 
-        require("phpCode.php");
-        //$examCount = mysqli_num_rows($result);
-    ?>
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
