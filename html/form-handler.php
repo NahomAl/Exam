@@ -134,6 +134,10 @@
         else
             echo "Error updating exam";
     }
+
+    if (isset($_POST['takeExam'])){
+        header("Location: .php");
+    }
 /* 
     //From exam-editor.php
     if (isset($_POST['setExamSchedule'])){
