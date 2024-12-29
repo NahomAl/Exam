@@ -16,8 +16,7 @@
     margin-bottom: 8px;
 }
 
-.create-exam-form input[type="text"],
-.create-exam-form input[type="number"],
+.create-exam-form input,
 .create-exam-form select {
     width: 100%;
     padding: 8px;

@@ -7,6 +7,7 @@ html, body {
     height: 100vh;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    background-color: #e9e7e7;
 }
 
 body {
@@ -16,7 +17,11 @@ body {
 
 header {
     background-color: #007bff;
+    background-color: #333;
+    background-color: #f4f4f4;
+    background-color: #e9e7e7;
     color: white;
+    color: black;
     padding: 20px;
     text-align: center;
     display: flex;
@@ -56,14 +61,16 @@ header button:hover {
 .container {
     display: flex;
     flex: 1;
+    
     /*min-height: 100vh;*/
 }
 
 aside {
     width: 250px;
     background-color: #333;
+    background-color: #f4f4f4;
     color: white;
-    padding: 15px;
+    padding-top: 15px;
     display: flex;
     flex-direction: column;
 }
@@ -75,6 +82,7 @@ aside ul {
 
 aside li {
     margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 aside a {
@@ -100,4 +108,10 @@ main {
 }
 main h2 {
     margin-top: 0;
+}
+nav a{
+    /* border-bottom: 2px solid white;
+    border-top: 2px solid white; */
+    /* padding: 15px 0;
+    background-color: black; */
 }

@@ -25,6 +25,17 @@
             <?php include("nav-links.html") ?>
         </aside>
         <main>
+            <div class="wrapper">
+                <div class="past">
+                    
+                </div>
+                <div class="active">
+                    
+                </div>
+                <div class="upcoming">
+                    
+                </div>
+            </div>
             <?php
                 include('phpCode.php');
                 $orgID = $_SESSION["orgID"];

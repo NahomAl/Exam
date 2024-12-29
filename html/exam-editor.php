@@ -57,12 +57,12 @@
                 <input type="number" id="number-of-questions" name="number_of_questions" min="1" value="<?php echo htmlspecialchars($exam['Number_of_questions']); ?>" required>
 
                 <label for="time-allotted">Time Allotted (hours:minutes):</label>
-                <input type="time" id="time-allotted" name="time_allotted" disabled value="<?php echo htmlspecialchars($exam['Time_allotted']); ?>" required>
+                <input type="time" id="time-allotted" name="time_allotted" value="<?php echo htmlspecialchars($exam['Time_allotted']); ?>" required>
 
                 <label for="time-of-exam">Time of Exam:</label>
-                <input type="datetime-local" id="time-of-exam" name="time_of_exam" disabled value="<?php echo htmlspecialchars($exam['Time_of_exam']); ?>" required>
-                <a class="schedule-link" href="exam-schedule.php">Schedule Exam</a>
-
+                <input type="datetime-local" id="time-of-exam" name="time_of_exam" value="<?php echo htmlspecialchars($exam['Time_of_exam']); ?>" required>
+                <!--<a class="schedule-link" href="exam-schedule.php">Schedule Exam</a>-->
+                <!--<button class="schedule-link" type="submit" name="setExamSchedule">Schedule Exam</button>-->
                 <label for="number-of-examinees">Number of Examinees:</label>
                 <input type="number" id="number-of-examinees" name="number_of_examinees" min="1" disabled value="<?php echo htmlspecialchars($exam['Number_of_examinees']); ?>" required>
 

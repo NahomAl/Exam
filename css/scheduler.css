@@ -40,24 +40,29 @@ main {
 }
 */
 #calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
+    /* display: grid; */
+    /* grid-template-columns: repeat(7, 1fr); */ /* 7 columns for days of the week */
     /*grid-template-rows: repeat(5, 150px);*/
     gap: 10px;
     width: 80%;
     margin: 50px auto;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 40px 40px;
 }
 
 .day {
     /*min-height: 100px;*/
-    width: 150px;
-    height: 150px;
+    /* width: 150px;
+    height: 150px; */
     background-color: #f4f4f4;
-    padding: 15px;
+    padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    text-align: center;
+    /* text-align: center; */
     transition: background-color 0.3s;
+    /* display: flex; */
 }
 
 .day h3 {
@@ -68,13 +73,13 @@ main {
 /* Styling for clickable days when setting an exam date */
 .clickable-day {
     cursor: pointer;
-    background-color: #e7f1ff; /* Light blue background to indicate it's clickable */
+    background-color: #e7f1ff; 
 }
 
-.clickable-day:hover {
-    background-color: #cce3ff; /* Slightly darker blue on hover */
+/* .clickable-day:hover {
+    background-color: #cce3ff;
     border-color: #007bff;
-}
+} */
 /* Style the section that holds the "Save Exam Date" button */
 /*
 #save-date-section {
@@ -182,9 +187,10 @@ input[type="number"] {
     display: none; /* Initially hidden */
 }
 
-/*.exam-count {
-    font-size: 10px;
-}*/
+.exam-count {
+    font-weight: bold;
+    font-size: 12px;
+}
 
 
 

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/create-exam-style.css">
+    <link rel="stylesheet" href="../css/create-exam.css">
 </head>
 <body>
 <header>
@@ -31,8 +31,11 @@
                     <option value="Licensing Exam">Licensing Exam</option>
                     <option value="Other">Other</option>
                 </select><br>
-                <label for="num-of-questions">Number of Questions</label>
-                <input type="number" min="5" max="200" value="5" name="num-of-questions" id="number-of-questions"><br>
+                <label for="time-allotted">Time Allotted (hours:minutes):</label>
+                <input type="time" id="time-allotted" name="time_allotted" required>
+
+                <label for="time-of-exam">Time of Exam:</label>
+                <input type="datetime-local" id="time-of-exam" name="time_of_exam" required>
                 <input type="submit" name="create-exam" value="Create Exam">
                 <div class="err-div"></div>
             </form>

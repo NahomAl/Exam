@@ -8,6 +8,15 @@
         $_SESSION['examName'] = $_POST['examName'];
         header("Location: exam-editor.php");
     }
+    if (isset($_POST['deleteExam'])){
+        $examID = $_POST['deleteExam'];
+        $sql = $conn -> prepare("DELETE FROM exam WHERE Exam_ID = ?");
+        $sql -> bind_param("i", $examID);
+        if ($sql -> execute())
+            header("Location: organizer-dashboard.php");
+        else
+            die("Delete failed");
+    }
 
     //From organizer-dashboard.php
     if (isset($_POST['viewQuestions'])){
@@ -27,12 +36,14 @@
         $regex = "/^[A-Z][\w-_ ]*$/i";
         $examName = $_POST["exam-name"];
         $examType = $_POST["exam-type"];
+        $examTime = $_POST['time_of_exam'];
+        $timeAllotted = $_POST['time_allotted'];
         $orgID = $_SESSION['orgID'];
         if (!preg_match($regex, $examName))
             echo "Invalid input for exam name";
         else{
-            $sql = $conn -> prepare("INSERT INTO exam (Exam_name, Exam_type, Organizer_ID) VALUES (?, ?, ?)");
-            $sql -> bind_param("ssi", $examName, $examType, $orgID);
+            $sql = $conn -> prepare("INSERT INTO exam (Exam_name, Exam_type, Time_allotted, Time_of_exam, Organizer_ID) VALUES (?, ?, ?, ?, ?)");
+            $sql -> bind_param("ssssi", $examName, $examType, $timeAllotted, $examTime, $orgID);
             if ($sql -> execute()){
                 $sql -> close();
                 $conn -> close();
@@ -55,6 +66,15 @@
     if (isset($_POST['addQuestion'])){
         unset($_SESSION['qID']);
         header("Location: add-question.php");
+    }
+    if (isset($_POST['deleteQuestion'])){
+        $qID = $_POST['deleteQuestion'];
+        $sql = $conn -> prepare("DELETE FROM question WHERE Question_ID = ?");
+        $sql -> bind_param("i", $qID);
+        if ($sql -> execute())
+            header("Location: exam-questions.php");
+        else
+            die("Delete failed");
     }
 
 
@@ -101,15 +121,23 @@
         $examID = $_SESSION['examID'];
         $examName = $_POST['exam_name'];
         $examType = $_POST['exam_type'];
+        $examTime = $_POST['time_of_exam'];
+        $timeAllotted = $_POST['time_allotted'];
         $numQuestions = $_POST['number_of_questions'];
-        $stmt = $conn -> prepare("UPDATE exam SET Exam_name = ?, Exam_type = ?, Number_of_questions = ? WHERE Exam_ID = $examID");
-        $sql -> bind_param("ssi", $examName, $examType, $numQuestions);
-        $status = $sql -> execute();
-        $sql -> close();
+        $stmt = $conn -> prepare("UPDATE exam SET Exam_name = ?, Exam_type = ?, Time_of_exam = ?, Time_allotted = ?, Number_of_questions = ? WHERE Exam_ID = $examID");
+        $stmt -> bind_param("ssssi", $examName, $examType, $examTime, $timeAllotted, $numQuestions);
+        $status = $stmt -> execute();
+        $stmt -> close();
         $conn -> close();
         if ($status)
             header("Location: organizer-dashboard.php");
         else
             echo "Error updating exam";
     }
+/* 
+    //From exam-editor.php
+    if (isset($_POST['setExamSchedule'])){
+        $examID = $_SESSION['examID'];
+        header("Location: exam-schedule.php");
+    } */
 ?>

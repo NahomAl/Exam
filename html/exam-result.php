@@ -114,7 +114,7 @@
             background-color: #003d80;
         }
         /*Custom scroll bar*/ 
-        #examTable::-webkit-scrollbar {
+        /* #examTable::-webkit-scrollbar {
             width: 8px;
         }
 
@@ -125,7 +125,7 @@
 
         #examTable::-webkit-scrollbar-thumb:hover {
             background-color: #aaa;
-        }
+        } */
 
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

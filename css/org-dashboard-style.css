@@ -1,8 +1,8 @@
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0px;
-    margin-bottom: 20px;
+    /* margin-top: 0px;
+    margin-bottom: 20px; */
     border: 0px;
 }
 div.tables {
@@ -11,8 +11,10 @@ div.tables {
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    border: 0;
+    text-align: center;
+}
+td {
     text-align: left;
 }
 
@@ -22,8 +24,7 @@ th {
     position: sticky;
     top: 0;
     z-index: 1;
-    /*border: 2px solid #007bff;*/
-    padding-top: 15px;
+    padding: 10px;
 }
 
 tr:nth-child(even) {
@@ -55,10 +56,20 @@ button, input[type="submit"] {
     cursor: pointer;
     box-shadow: 1px 1px 2px black;
 }
+.del{
+    background-color: rgb(234, 0, 0);
+}
+.del:hover{
+    background-color: rgb(196, 1, 1);
+}
 
 .search-button {
     background-color: #333;
 }
 .search-form{
     padding: 0;
+}
+td{
+    margin: 0;
+    padding: 7px 15px;
 }

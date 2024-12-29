@@ -62,10 +62,18 @@
             border-radius: 4px;
             font-size: 0.9em;
             transition: background-color 0.3s;
+            border: none;
+        }
+        .del{
+            background-color:rgb(234, 0, 0);
+            margin-left: 10px;
         }
 
         .qButton:hover {
             background-color: #0056b3;
+        }
+        .del:hover {
+            background-color:rgb(196, 1, 1);
         }
         .exam-questions-container > h2 {
             margin-bottom: 20px;
@@ -108,6 +116,7 @@
                             echo "<p class='correct-answer'>Correct Answer: {$row['Correct_answer']}</p>";
                             echo '<form action="form-handler.php" method="post">';
                             echo "<button type='submit' name='editQuestion' value='$row[Question_ID]' class='qButton'>Edit</button>";
+                            echo "<button type='submit' name='deleteQuestion' value='$row[Question_ID]' class='qButton del'>Delete</button>";
                             echo '</form>';
                             echo "</li>";
                         }
