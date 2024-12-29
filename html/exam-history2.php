@@ -11,7 +11,6 @@
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="../css/org-dashboard-style.css">
 </head>
 
 <body>
@@ -29,7 +28,7 @@
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Examino</span>
+                        <span class="title">Brand Name</span>
                     </a>
                 </li>
 
@@ -184,8 +183,14 @@
 
                         <tbody>
                             <?php
+                                include('phpCode.php');
                                 $orgID = $_SESSION["orgID"];
-                                displayExam($orgID, '');
+                                if (isset($_GET["search-term"])){
+                                    $searchTerm = strip_tags($_GET["search-term"]);
+                                    getExamHistory($orgID, $searchTerm);
+                                }
+                                else
+                                    getExamHistory($orgID, '');
                             ?>
                         </tbody>
                     </table>

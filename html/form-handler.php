@@ -6,14 +6,14 @@
     if (isset($_POST['editExam'])){
         $_SESSION['examID'] = $_POST['editExam'];
         $_SESSION['examName'] = $_POST['examName'];
-        header("Location: exam-editor.php");
+        header("Location: exam-editor2.php");
     }
     if (isset($_POST['deleteExam'])){
         $examID = $_POST['deleteExam'];
         $sql = $conn -> prepare("DELETE FROM exam WHERE Exam_ID = ?");
         $sql -> bind_param("i", $examID);
         if ($sql -> execute())
-            header("Location: organizer-dashboard.php");
+            header("Location: Org-dash.php");
         else
             die("Delete failed");
     }
@@ -22,7 +22,7 @@
     if (isset($_POST['viewQuestions'])){
         $_SESSION['examID'] = $_POST['viewQuestions'];
         $_SESSION['examName'] = $_POST['examName'];
-        header("Location: exam-questions.php");
+        header("Location: exam-questions2.php");
     }
 
     //From exam-history.php
@@ -130,7 +130,7 @@
         $stmt -> close();
         $conn -> close();
         if ($status)
-            header("Location: organizer-dashboard.php");
+            header("Location: Org-dash.php");
         else
             echo "Error updating exam";
     }

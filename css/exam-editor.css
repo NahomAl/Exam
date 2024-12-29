@@ -28,6 +28,7 @@ button, .schedule-link {
     display: inline-block;
     padding: 10px 15px;
     background-color: #28a745;
+    background-color: rgb(42, 33, 133);
     color: white;
     border: none;
     border-radius: 5px;
@@ -37,16 +38,17 @@ button, .schedule-link {
 }
 
 /* Small link styles */
-a.schedule-link {
+/* a.schedule-link {
     display: block;
     width: 20%;
     margin: auto;
     text-decoration: none;
     margin-top: 10px;
     text-align: center;
-}
-button:hover, .schedule-link:hover {
+} */
+button:hover {
     background-color: #218838;
+    background-color: rgb(34, 27, 107);
 }
 
 .exam-name {

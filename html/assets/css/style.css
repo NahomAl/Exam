@@ -288,13 +288,19 @@ body {
   font-weight: 600;
   color: var(--blue);
 }
-.cardHeader .btn {
+.btn, .del{
   position: relative;
   padding: 5px 10px;
   background: var(--blue);
   text-decoration: none;
   color: var(--white);
   border-radius: 6px;
+}
+.del{
+  background-color:rgb(234, 0, 0);
+}
+.del:hover {
+  background-color:rgb(196, 1, 1);
 }
 
 .details table {

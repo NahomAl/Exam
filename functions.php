@@ -80,7 +80,7 @@ function displayExam($orgID, $keyword){
 
     function getresult($examineeID){
         include_once "dbConnect.php";
-        $result = mysqli_query($conn, "SELECT * FROM examinee_takes_exam WHERE Examinee_ID = $examineeID");
+        $result = mysqli_query($conn, "SELECT Score FROM examinee_takes_exam WHERE Examinee_ID = $examineeID");
         $row=mysqli_fetch_assoc($Result);
         return $row["Score"];
     }

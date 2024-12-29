@@ -11,15 +11,11 @@
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="../css/org-dashboard-style.css">
+    <link rel="stylesheet" href="../css/create-exam.css">
 </head>
 
 <body>
     </body>
-    <?php 
-        require("phpCode.php");
-        //$examCount = mysqli_num_rows($result);
-    ?>
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
@@ -29,7 +25,7 @@
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Examino</span>
+                        <span class="title">Brand Name</span>
                     </a>
                 </li>
 
@@ -105,12 +101,7 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
-                </div>
+                
 
                 <div class="user">
                     <img src="assets/imgs/customer01.jpg" alt="">
@@ -118,77 +109,32 @@
             </div>
 
             <!-- ======================= Cards ================== -->
-            <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>
 
             <!-- ================ Order Details List ================= -->
             <div class="details">
                 <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
-                    </div>
+                    <main>
+                    <form action="form-handler.php" method="post" name="create-exam-form" class="create-exam-form">
+                        <label for="exam-name">Exam name: </label>
+                        <input type="text" name="exam-name" id="exam-name" required><br>
+                        <label for="exam-type">Exam type: </label>
+                        <select name="exam-type" id="exam-type" required>
+                            <option value="none" selected disabled>Select exam type</option>
+                            <option value="Academic assessment">Academic Assessment</option>
+                            <option value="Certification Exam">Certification Exam</option>
+                            <option value="Training Assessment">Training Assessment</option>
+                            <option value="Licensing Exam">Licensing Exam</option>
+                            <option value="Other">Other</option>
+                        </select><br>
+                        <label for="time-allotted">Time Allotted (hours:minutes):</label>
+                        <input type="time" id="time-allotted" name="time_allotted" required>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>ID</td>
-                                <td>Name</td>
-                                <td>Type</td>
-                                <td>Date/Time</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php
-                                $orgID = $_SESSION["orgID"];
-                                displayExam($orgID, '');
-                            ?>
-                        </tbody>
-                    </table>
+                        <label for="time-of-exam">Time of Exam:</label>
+                        <input type="datetime-local" id="time-of-exam" name="time_of_exam" required>
+                        <input type="submit" name="create-exam" value="Create Exam">
+                        <div class="err-div"></div>
+                    </form>
+                    </main>
                 </div>
             </div>
         </div>
