@@ -9,17 +9,13 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
-
-    <!-- header section starts  -->
 
     <header class="header">
 
@@ -38,9 +34,6 @@
 
     </header>
 
-    <!-- header section ends -->
-
-    <!-- home section starts  -->
 
     <section class="home" id="home">
 
@@ -61,9 +54,6 @@
 
     </section>
 
-    <!-- home section ends -->
-
-    <!-- service section starts  -->
 
     <section class="service" id="service">
 
@@ -100,10 +90,6 @@
 
     </section>
 
-    <!-- service section ends -->
-
-    <!-- about section starts  -->
-
     <section class="about" id="about">
 
         <h1 class="heading"><span>about</span> us </h1>
@@ -126,9 +112,6 @@
 
     </section>
 
-    <!-- about section ends -->
-
-    <!-- review section starts  -->
 
     <section class="reivew" id="review">
 
@@ -200,32 +183,6 @@
 
     </section>
 
-    <!-- review section ends -->
-
-    <!-- contact section starts  -->
-
-    <section class="contact" id="contact">
-
-        <h1 class="heading"> <span>contact</span> us </h1>
-
-        <form action="">
-            <div class="inputBox">
-                <input type="text" placeholder="name">
-                <input type="email" placeholder="email">
-            </div>
-            <div class="inputBox">
-                <input type="number" placeholder="number">
-                <input type="text" placeholder="subject">
-            </div>
-            <textarea name="" placeholder="your message" id="" cols="30" rows="10"></textarea>
-            <input type="submit" value="send message" class="btn">
-        </form>
-
-    </section>
-
-    <!-- contact section ends -->
-
-    <!-- footer section starts  -->
 
     <section class="footer">
 
@@ -272,9 +229,6 @@
 
     </section>
 
-    <!-- footer section ends -->
-
-    <!-- theme toggler  -->
 
     <div class="theme-toggler">
 
@@ -298,7 +252,7 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- custom js file link  -->
+
     <script src="js/script.js"></script>
 
 </body>
