@@ -17,9 +17,7 @@
     </body>
     <?php 
         require("phpCode.php");
-        //$examCount = mysqli_num_rows($result);
     ?>
-    <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
             <ul>
@@ -44,7 +42,7 @@
                 <li>
                     <a href="create-exam2.php">
                         <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
+                            <ion-icon name="create-outline"></ion-icon>
                         </span>
                         <span class="title">Create Exam</span>
                     </a>
@@ -53,12 +51,19 @@
                 <li>
                     <a href="exam-history2.php">
                         <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            <ion-icon name="document-text-outline"></ion-icon>
                         </span>
                         <span class="title">Exam History</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="exam-schedule.php">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Exam Schedule</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -70,7 +75,6 @@
             </ul>
         </div>
 
-        <!-- ========================= Main ==================== -->
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -78,18 +82,18 @@
                 </div>
 
                 <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
+                    <form action="Org-dash.php" method="get">
+                        <label>
+                            <input type="text" name="keyword" placeholder="Search exam">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
+                    </form>
                 </div>
 
                 <div class="user">
                     <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
-
-            <!-- ======================= Cards ================== -->
             <div class="cardBox">
                 <div class="card">
                     <div>
@@ -156,7 +160,11 @@
                         <tbody>
                             <?php
                                 $orgID = $_SESSION["orgID"];
-                                displayExam($orgID, '');
+                                if (isset($_GET["keyword"])){
+                                    displayExam($orgID, $_GET["keyword"]);
+                                }
+                                else
+                                    displayExam($orgID, '');
                             ?>
                         </tbody>
                     </table>

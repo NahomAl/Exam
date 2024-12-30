@@ -69,17 +69,18 @@ input[type="submit"] {
     width: 100%;
     padding: 12px;
     margin-top: 20px;
-    background-color: #4CAF50;
+    background-color: rgb(42, 33, 133);
     color: white;
     font-size: 18px;
     font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: rgb(30, 24, 97);
 }
 
 /* Mobile-friendly adjustments */

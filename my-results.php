@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $examineeID = $_SESSION["Examinee_ID"];
+    $orgID = $_SESSION["Org_ID"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,27 +11,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
-    <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     </body>
-    <!-- =============== Navigation ================ -->
+    <?php 
+        require("functions.php");
+    ?>
     <div class="container">
         <div class="navigation">
-        <ul>
+            <ul>
                 <li>
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Examino</span>
+                        <span class="title">Brand Name</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="Org-dash.php">
+                    <a href="#">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -38,30 +41,23 @@
                 </li>
 
                 <li>
-                    <a href="create-exam2.php">
+                    <a href="#">
                         <span class="icon">
-                            <ion-icon name="create-outline"></ion-icon>
+                            <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Create Exam</span>
+                        <span class="title">Customers</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="exam-history2.php">
+                    <a href="#">
                         <span class="icon">
-                            <ion-icon name="document-text-outline"></ion-icon>
+                            <ion-icon name="chatbubble-outline"></ion-icon>
                         </span>
-                        <span class="title">Exam History</span>
+                        <span class="title">Messages</span>
                     </a>
                 </li>
-                <li>
-                    <a href="exam-schedule.php">
-                        <span class="icon">
-                            <ion-icon name="calendar-outline"></ion-icon>
-                        </span>
-                        <span class="title">Exam Schedule</span>
-                    </a>
-                </li>
+
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -73,7 +69,6 @@
             </ul>
         </div>
 
-        <!-- ========================= Main ==================== -->
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -81,21 +76,16 @@
                 </div>
 
                 <div class="search">
-                    <form action="exam-history2.php" method="get">
-                        <label>
-                            <input type="text" name="keyword" placeholder="Search exam">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </label>
-                    </form>
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
                 </div>
 
                 <div class="user">
                     <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
-
-            <!-- ======================= Cards ================== -->
-            <!--
             <div class="cardBox">
                 <div class="card">
                     <div>
@@ -141,13 +131,12 @@
                     </div>
                 </div>
             </div>
-            -->
 
-            <!-- ================ Order Details List ================= -->
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Exam History</h2>
+                        <h2>Recent Orders</h2>
+                        <a href="#" class="btn">View All</a>
                     </div>
 
                     <table>
@@ -163,24 +152,17 @@
 
                         <tbody>
                             <?php
-                                include('phpCode.php');
-                                $orgID = $_SESSION["orgID"];
-                                if (isset($_GET["keyword"])){
-                                    $keyword = strip_tags($_GET["keyword"]);
-                                    getExamHistory($orgID, $keyword);
-                                }
-                                else
-                                    getExamHistory($orgID, '');
+                                displayResults($examineeID, '');
                             ?>
                         </tbody>
                     </table>
                 </div>
+
+                
             </div>
         </div>
     </div>
-
     <script src="assets/js/main.js"></script>
-
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

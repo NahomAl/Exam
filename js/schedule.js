@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
             const dayExams = exams.filter((exam) => (exam.Time_of_exam.split(' ')[0] === currentDate));
             if (exams.length === 0){
-                const noExams = document.createElement('div');
+                const noExams = document.createElement('h2');
                 noExams.textContent = "No exams in this month";
                 calendar.appendChild(noExams);
                 return;

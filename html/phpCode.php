@@ -1,6 +1,6 @@
 <?php
     function displayExam($orgID, $keyword){
-        include_once "dbConnect.php";
+        require("dbConnect.php");
         $result = mysqli_query($conn, "SELECT * FROM exam WHERE Organizer_ID = $orgID AND NOW() < Time_of_exam AND Exam_name like '%$keyword%'");
         
         $examCount = mysqli_num_rows($result);
@@ -27,7 +27,7 @@
         }
     }
     function getExamHistory($orgID, $keyword){
-        include_once "dbConnect.php";
+        require("dbConnect.php");
         $result = mysqli_query($conn, "SELECT * FROM exam WHERE Organizer_ID = $orgID AND NOW() > Time_of_exam AND Exam_name like '%$keyword%'");
         $examCount = mysqli_num_rows($result);
         if ($examCount > 0){;
@@ -39,7 +39,7 @@
                 echo "<td>" . $row['Exam_type'] . "</td>";
                 echo "<td>" . $row['Time_of_exam'] . "</td>";
                 echo '<form action="form-handler.php" method="post">';
-                echo "<td><button type='submit' name='showResult' value='$examID'>Show result</button></td>";
+                echo "<td><button type='submit' name='showResult' value='$examID' class='btn'>Show result</button></td>";
                 echo '</form>';
                 echo "</tr>";
             }

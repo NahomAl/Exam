@@ -19,13 +19,13 @@
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
-            <ul>
+        <ul>
                 <li>
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Brand Name</span>
+                        <span class="title">Examino</span>
                     </a>
                 </li>
 
@@ -41,7 +41,7 @@
                 <li>
                     <a href="create-exam2.php">
                         <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
+                            <ion-icon name="create-outline"></ion-icon>
                         </span>
                         <span class="title">Create Exam</span>
                     </a>
@@ -50,9 +50,17 @@
                 <li>
                     <a href="exam-history2.php">
                         <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            <ion-icon name="document-text-outline"></ion-icon>
                         </span>
                         <span class="title">Exam History</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="exam-schedule.php">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="title">Exam Schedule</span>
                     </a>
                 </li>
                 <li>
