@@ -12,11 +12,9 @@
 
 <body>
     </body>
-    <!-- =============== Navigation ================ -->
     <div class="container">
         <?php include("nav-links.html"); ?>
 
-        <!-- ========================= Main ==================== -->
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
