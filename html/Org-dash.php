@@ -19,7 +19,7 @@
         require("phpCode.php");
     ?>
     <div class="container">
-        <div class="navigation">
+        <!-- <div class="navigation">
             <ul>
                 <li>
                     <a href="#">
@@ -73,7 +73,8 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> -->
+        <?php include("nav-links.html"); ?>
 
         <div class="main">
             <div class="topbar">
@@ -97,8 +98,18 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
+                        <div class="numbers">3</div>
+                        <div class="cardName">Upcoming Exams</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
                         <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="cardName">Examinees</div>
                     </div>
 
                     <div class="iconBx">
@@ -109,7 +120,7 @@
                 <div class="card">
                     <div>
                         <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="cardName">Exams given</div>
                     </div>
 
                     <div class="iconBx">
@@ -117,27 +128,7 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
+                
             </div>
 
             <!-- ================ Order Details List ================= -->

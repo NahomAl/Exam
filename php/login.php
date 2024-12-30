@@ -1,7 +1,31 @@
 <?php
-require 'db_config.php';
+
 session_start();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once "../html/dbConnect.php";
+    $user = $_POST["username"];
+    $pwd = $_POST["password"];
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username='$user' AND password='$pwd'");
+    if (mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $userID = $row["user_ID"];
+        if ($row["role"] == 'organizer'){
+            $result = mysqli_query($conn, "SELECT Organizer_ID FROM organizer WHERE user_ID = $userID");
+            $data = mysqli_fetch_assoc($result);
+            $_SESSION["orgID"] = $data["Organizer_ID"];
+            Header("Location: ../html/Org-dash.php");
+        }
+        else{
+            $result = mysqli_query($conn, "SELECT Examinee_ID, Organizer_ID FROM Examinee WHERE user_ID = $userID");
+            $data = mysqli_fetch_assoc($result);
+            $_SESSION["Org_ID"] = $data["Organizer_ID"];
+            $_SESSION["Examinee_ID"] = $data["Employee_ID"];
+            Header("Location: ../exams-to-take.php");
+        }
+    }
+}
+/*
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escape username input
     $username = $conn->real_escape_string($_POST['username']);
@@ -43,5 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 
+
 $conn->close();
+*/
 ?>

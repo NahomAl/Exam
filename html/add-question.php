@@ -37,61 +37,7 @@
 
 <body>
     <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="logo-apple"></ion-icon>
-                        </span>
-                        <span class="title">Examino</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="Org-dash.php">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="create-exam2.php">
-                        <span class="icon">
-                            <ion-icon name="create-outline"></ion-icon>
-                        </span>
-                        <span class="title">Create Exam</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="exam-history2.php">
-                        <span class="icon">
-                            <ion-icon name="document-text-outline"></ion-icon>
-                        </span>
-                        <span class="title">Exam History</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="exam-schedule.php">
-                        <span class="icon">
-                            <ion-icon name="calendar-outline"></ion-icon>
-                        </span>
-                        <span class="title">Exam Schedule</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <?php include("nav-links.html"); ?>
 
         <!-- ========================= Main ==================== -->
         <div class="main">

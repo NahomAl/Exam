@@ -13,7 +13,7 @@
         <div class="exam-container">
             <h2>Login</h2>
             <div class="error">
-                <?= htmlspecialchars($_GET['error']); ?>
+                <?php htmlspecialchars($_GET['error']); ?>
             </div>
             <form action="../php/login.php" method="POST">
                 <label for="username">Username:</label>
